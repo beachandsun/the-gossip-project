@@ -1,4 +1,4 @@
 class Tag < ApplicationRecord
-    has_many :links_tags
-    has_many :gossips, throught: :links_tags
+    has_many :link_tags
+    has_many :gossips, through: :link_tags
 end

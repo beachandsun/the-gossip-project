@@ -1,0 +1,6 @@
+<h1>Bienvenue </h1> <br>
+<% @gossip.each do |gossip| %>
+<% name = User.find_by id: gossip.user_id %>
+<p>Nom: <%= name.first_name%></p>
+<p>Titre: <%= link_to "#{gossip.title}", my_gossip_path(gossip.id)%></p><br> <br>
+<% end %>
