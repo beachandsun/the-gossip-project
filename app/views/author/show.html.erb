@@ -1,6 +1,11 @@
-<h1><%= @author.first_name %></h1>
-<p><%= @author.last_name %></p>
-<p><%= @author.description %></p>
-<p><%= @city.name %></p>
-<p><%= @author.age %></p>
 
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @author.first_name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @author.last_name %></h6>
+    <p class="card-text"><%= @author.description %></p>
+    <p class="card-link"><%= @author.age %></p>
+    <p class="card-link"><%= @city.name %></p>
+  </div>
+</div>
