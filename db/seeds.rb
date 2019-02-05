@@ -46,3 +46,9 @@ puts "25 liens tags/gossips créés"
 2.times do 
   private_message = PrivateMessage.create!(content: Faker::FamousLastWords.last_words, sender_id: rand(User.all.first.id..User.all.last.id), recipient_id: rand(User.all.first.id..User.all.last.id))
 end
+
+
+
+	
+
+

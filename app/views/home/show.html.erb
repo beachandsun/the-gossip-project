@@ -1,15 +1,30 @@
-<h1>Bienvenue </h1> <br>
-<% @gossip.each do |gossip| %>
-<% name = User.find_by id: gossip.user_id %>
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= link_to "#{gossip.title}", my_gossip_path(gossip.id)%></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%=name.first_name%></h6>
-    <p class="card-text"><%=gossip.content%></p>
-  </div>
-</div><br>
 
-<% end %>
+<div class="container">
+	<div class="row justify-content-md-center">
+		<div class="col-10">
+			<h1 class="text-center mt-5"> Bienvenue </h1>
+			<div class="d-flex justify-content-center">
+			<br>
+		<a class="btn btn-dark p-3 pl-5 pr-5" href="<%=new_gossip_path%>" role="button">Create a new gossip</a>
+		</div> <br>
+		</div>
 
+		
+		<% @gossip.each do |gossip| %>
+		<% name = User.find_by id: gossip.user_id %>
+
+		<div class="col mt-5">
+			<div class="card" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title"><%= link_to "#{gossip.title}", gossip_path(gossip.id)%></h5>
+					<h6 class="card-subtitle mb-2 text-muted"><%=name.first_name%></h6>
+					<p class="card-text"><%=gossip.content%></p>
+				</div>
+			</div><br>
+		</div>
+		<% end %>
+
+	</div>
+</div>
 
