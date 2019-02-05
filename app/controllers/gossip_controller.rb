@@ -12,7 +12,7 @@ class GossipController < ApplicationController
   end
 
   def create
-  @post = Gossip.new('user_id' => 12,
+  @post = Gossip.new('user_id' => 11,
                    'title' => params[:title],
                    'content' => params[:content])
   @post.save
@@ -21,7 +21,7 @@ class GossipController < ApplicationController
 
   else
     render 'new'
-    
+
   end
 end
 end
