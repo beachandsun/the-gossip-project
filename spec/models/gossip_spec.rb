@@ -1,13 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe Gossip, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-  
-  context "validation" do
+	describe "GET #show" do
+		it "assigns @gossip" do
+			gossip = Factory.attributes_for(:gossip)
 
-    it "is valid with valid attributes" do
-      expect(@user).to be_a(User)
-      expect(@user).to be_valid
-    end
+			get :show, id: gossip.id
+		    # des tests
+		    expect(assigns(:gossip)).to eq(gossip)
+		end
 
+
+		it "renders the show template" do
+		    # va sur show
+		    get :show
+
+		    # on doit rediriger vers show
+		    expect(response).to render_template("show")
+		end
+	end
 end

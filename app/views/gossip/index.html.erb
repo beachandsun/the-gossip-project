@@ -1,16 +1,14 @@
-
-
 <div class="container">
 	<div class="row justify-content-md-center">
 		<div class="col-10">
 			<h1 class="text-center mt-5"> Bienvenue </h1>
 			<div class="d-flex justify-content-center">
-			<br>
-		<a class="btn btn-dark p-3 pl-5 pr-5" href="<%=new_gossip_path%>" role="button">Create a new gossip</a>
-		</div> <br>
+				<br>
+				<a class="btn btn-dark p-3 pl-5 pr-5" href="<%=new_gossip_path%>" role="button">Create a new gossip</a>
+			</div> <br>
 		</div>
 
-		
+
 		<% @gossip.each do |gossip| %>
 		<% name = User.find_by id: gossip.user_id %>
 
@@ -24,7 +22,6 @@
 			</div><br>
 		</div>
 		<% end %>
-
 	</div>
 </div>
-
+p

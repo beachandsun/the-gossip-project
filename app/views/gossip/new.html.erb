@@ -1,13 +1,13 @@
 <h1>SALUT</h1>
 
-    <%= form_tag url_for(action: "create"), method: "post" do %>
+    <%= form_tag( url_for(action: 'create'), method: "post") do %>
       <%= label_tag 'Title' %>
-      <%= text_field_tag 'title', @post.title %>
+      <%= text_field_tag 'title', @gossip.title %>
 
       <br /> <br />
 
       <%= label_tag 'Body' %>
-      <%= text_area_tag 'content', @post.content %>
+      <%= text_area_tag 'content', @gossip.content %>
 
       <br /> <br />
 

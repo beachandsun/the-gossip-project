@@ -1,27 +1,51 @@
 class GossipController < ApplicationController
   
-	attr_accessor :post
+	attr_accessor :gossip
+
+  def index
+    @gossip = Gossip.all
+  end
 
   def show
     @gossip = Gossip.find(params[:id])
-    @author = User.all.find_by id: @gossip.user_id   
   end
 
   def new
-  create
+  	 @gossip = Gossip.new
   end
 
   def create
-  @post = Gossip.new('user_id' => 11,
+  @gossip = Gossip.new('user_id' => 12,
                    'title' => params[:title],
                    'content' => params[:content])
-  @post.save
-  if @post.save
-    redirect_to home_path
+  @gossip.save
+  if @gossip.save
+    redirect_to home_path, success: "Gossip created"
 
   else
-    render 'new'
-
+    render 'new', error: "error"
   end
 end
+
+def edit
+    @gossip = Gossip.find(params[:id])
+  end
+
+
+ def update
+    @gossip = Gossip.find(params[:id])
+    if @gossip.update(model_params)
+      redirect_to @gossip
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @gossip = Gossip.find(params[:id])
+    @gossip.destroy
+    redirect_to models_path
+  end
+
+
 end
