@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
  
 
+  get 'city/show'
   resources :gossip
   resources :author
   resources :login
+  resources :city
   get 'home', to: 'home#show'
   get 'contact', to: 'contact#show'
   get 'team', to:'team#show'

@@ -1,11 +1,18 @@
-
-
+<br>
+<div class="container ">
+	<div class="row justify-content-center">
 <div class="card" style="width: 18rem;">
-  <div class="card-body">
+  <div class="card-body ">
     <h5 class="card-title"><%= @author.first_name %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @author.last_name %></h6>
     <p class="card-text"><%= @author.description %></p>
-    <p class="card-link"><%= @author.age %></p>
-    <p class="card-link"><%= @city.name %></p>
+    <p class="card-text">mail: <%= @author.email %></p>
+
+    <p class="card-link">Age: <%= @author.age %></p>
+    <p class="card-text">City: <%= link_to "#{@city.name}", city_path(@author.city_id)%></p>
   </div>
 </div>
+</div>
+</div>
+
+

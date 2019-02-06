@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	background-image: url("https://images.unsplash.com/photo-1549403610-177341eb0f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1900&q=80");
+	font-family: arial;
+	
+}
+
+.form-control{
+	background-color: #EAEAEA;
+}
+
+h1 {
+	color: white;
+}
+.card-text{
+	color:black;
+}
+. {
+	background-color: red;
+}

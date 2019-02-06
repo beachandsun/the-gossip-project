@@ -1,6 +1,4 @@
-<h1>SALUT</h1>
-
-    <%= form_tag( url_for(action: 'create'), method: "post") do %>
+<%= form_tag url_for(action: "create"), method: "post" do %>
       <%= label_tag 'Title' %>
       <%= text_field_tag 'title', @gossip.title %>
 
@@ -13,4 +11,3 @@
 
       <%= submit_tag "Create Post" %>
     <% end %>
-    

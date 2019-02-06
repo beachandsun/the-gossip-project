@@ -15,29 +15,40 @@ class GossipController < ApplicationController
   end
 
   def create
-  @gossip = Gossip.new('user_id' => 12,
-                   'title' => params[:title],
-                   'content' => params[:content])
-  @gossip.save
-  if @gossip.save
-    redirect_to home_path, success: "Gossip created"
+    @gossip = Gossip.new('user_id' => 12,
+                     'title' => params[:title],
+                     'content' => params[:content])
+    @gossip.save
+     puts "O" * 100
+      puts "O" * 100
+    if @gossip.save
+       puts "O" * 100
+      puts "O" * 100
+      redirect_to gossip_index_path
 
-  else
-    render 'new', error: "error"
-  end
-end
-
-def edit
-    @gossip = Gossip.find(params[:id])
-  end
-
-
- def update
-    @gossip = Gossip.find(params[:id])
-    if @gossip.update(model_params)
-      redirect_to @gossip
     else
-      render :edit
+      render 'new'
+    end
+  end
+
+  def edit
+    @gossip = Gossip.find(params[:id])
+  end
+
+
+  def update
+      @gossip = Gossip.find(params[:id])
+      @gossip.title = params[:title]
+      @gossip.content = params[:content]
+      @gossip.save
+      puts "O" * 100
+      puts "O" * 100
+    if @gossip.save
+        puts "O" * 100
+        redirect_to gossip_path(@gossip.id)
+        puts "O" * 100
+    else
+      render 'edit'
     end
   end
 
