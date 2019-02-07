@@ -6,7 +6,7 @@ class CommentController < ApplicationController
 
   def create
   	 @comment = Comment.new('user_id' => session[:id],
-            	'content' => params[:content]
+            	'content' => params[:content],
             	'gossip' => params[:gossip])
      @comment.save
      if @comment.save
@@ -22,7 +22,7 @@ class CommentController < ApplicationController
  	@comment = Comment.find(params[:id])
 
  end 
- 
+
  def update
  	@comment = Comment.find(params[:id])
  	@commment.content = params[:content]
