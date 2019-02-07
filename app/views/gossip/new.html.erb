@@ -1,13 +1,27 @@
-<%= form_tag url_for(action: "create"), method: "post" do %>
-      <%= label_tag 'Title' %>
-      <%= text_field_tag 'title', @gossip.title %>
+<div class="container">
+	<div class="row justify-content-md-center">
+		<div class="col-10">
+			<h1 class="text-center mt-5"> Create a new Gossip </h1>
+			<div class="d-flex justify-content-center">
+				<br>
+			</div> <br>
+		</div>
+		<br>
 
-      <br /> <br />
+		<div class="container card">
+			<%= form_tag url_for(action: "create"), method: "post" do %>
+			<br>
+			<%= label_tag 'Title' %>
+			<%= text_field_tag 'title', @gossip.title, class: 'form-control'%>
 
-      <%= label_tag 'Body' %>
-      <%= text_area_tag 'content', @gossip.content %>
+			<br /> <br />
 
-      <br /> <br />
+			<%= label_tag 'Content' %>
+			<%= text_area_tag 'content', @gossip.content, class: 'form-control'%>
 
-      <%= submit_tag "Create Post" %>
-    <% end %>
+			<br /> <br />
+
+			<%= submit_tag "Create Post", class: 'btn btn-primary' %>
+			<% end %>
+			<br>
+		</div>

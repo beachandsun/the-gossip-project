@@ -15,15 +15,11 @@ class GossipController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new('user_id' => 11,
+    @gossip = Gossip.new('user_id' => 12,
                      'title' => params[:title],
                      'content' => params[:content])
     @gossip.save
-     puts "O" * 100
-      puts "O" * 100
     if @gossip.save
-       puts "O" * 100
-      puts "O" * 100
       redirect_to gossip_index_path
 
     else
@@ -35,20 +31,16 @@ class GossipController < ApplicationController
     @gossip = Gossip.find(params[:id])
   end
 
-
   def update
       @gossip = Gossip.find(params[:id])
       @gossip.title = params[:title]
       @gossip.content = params[:content]
       @gossip.save
-      puts "O" * 100
-      puts "O" * 100
+
     if @gossip.save
-        puts "O" * 100
         redirect_to gossip_path(@gossip.id)
-        puts "O" * 100
     else
-      render 'edit'
+      render 'edit_gossip_path'
     end
   end
 
