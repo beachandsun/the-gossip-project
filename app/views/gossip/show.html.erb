@@ -10,8 +10,16 @@
   <div class="card-body">
     <blockquote class="blockquote mb-0">
 <p><%= @gossip.content %>
-<footer class="blockquote-footer"><%= link_to "#{User.find(@gossip.user_id).first_name}", author_path(User.find(@gossip.user_id).id) %> <%= link_to "#{(City.find(User.find(@gossip.user_id).city_id)).name}", city_path(City.find(User.find(@gossip.user_id).city_id)) %><cite title="Source Title"> <%= @gossip.updated_at %></cite></footer></p>
-<a class="btn btn-primary p-3 pl-5 pr-5" href="<%=edit_gossip_path(params[:id])%>" role="button">Edit</a>
+<footer class="blockquote-footer"><%= link_to "#{User.find(@gossip.user_id).first_name}", author_path(User.find(@gossip.user_id).id) %> <%= link_to "#{(City.find(User.find(@gossip.user_id).city_id)).name}", city_path(City.find(User.find(@gossip.user_id).city_id)) %><ul class="text-right">
+<li><a class="btn btn-primary p-3 pl-5 pr-5" href="<%=edit_gossip_path(params[:id])%>" role="button">Edit</a></li>
+
+<li><%= form_tag url_for(action: "destroy"), method: "delete" do %>
+      <%= submit_tag "Delete Post", class: 'btn btn-danger  p-3 pl-5 pr-5' %>
+  <% end %></li>
+</ul><cite title="Source Title"> <%= @gossip.updated_at %></cite> </footer></p>
+
     </blockquote>
   </div>
   </div>
+
+

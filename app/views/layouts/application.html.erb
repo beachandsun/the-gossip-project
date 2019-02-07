@@ -24,6 +24,15 @@
       <a class="nav-item nav-link" href="<%=contact_path%>">Contact</a>
     </div>
   </div>
+  <% if !session[:user_id] %>
+    <div>
+      <a class="btn btn-primary p-3 pl-5 pr-5" href="<%=new_session_path%>" role="button">Login</a>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to "Logout", session_path(session[:user_id]), :method => 'DELETE' %>
+    </div>
+  <% end %>
 </nav>
   
   </header>

@@ -30,3 +30,8 @@ h1 {
 .card-text{
 	color:black;
 }
+
+ul li {
+	list-style-type: none; 
+	display: inline-block;
+}

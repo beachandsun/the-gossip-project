@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
  
 
+  
+  get 'comment/content'
   get 'city/show'
+  resources :session, only: [:new, :create, :destroy]
+  resources :user
   resources :gossip
   resources :author
   resources :login

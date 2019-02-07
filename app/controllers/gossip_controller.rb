@@ -15,7 +15,7 @@ class GossipController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new('user_id' => 12,
+    @gossip = Gossip.new('user_id' => session[:user_id],
                      'title' => params[:title],
                      'content' => params[:content])
     @gossip.save
@@ -47,7 +47,7 @@ class GossipController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    redirect_to models_path
+    redirect_to gossip_index_path
   end
 
 
