@@ -20,7 +20,7 @@ end
 puts "10 cities créées"
 
 10.times do
-	user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lovecraft.paragraphs, email: Faker::Internet.free_email, age: Faker::Number.number(2), city_id: rand(City.all.first.id..City.all.last.id))
+	user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lovecraft.paragraphs, email: Faker::Internet.free_email, age: Faker::Number.number(2), city_id: rand(City.all.first.id..City.all.last.id), password: "azerty")
 end
 
 puts "10 users créés"
@@ -48,7 +48,6 @@ puts "25 liens tags/gossips créés"
   private_message = PrivateMessage.create!(content: Faker::FamousLastWords.last_words, sender_id: rand(User.all.first.id..User.all.last.id), recipient_id: rand(User.all.first.id..User.all.last.id))
 end
 
-User.create!(first_name: "Anonymous", last_name: "Unknow", description: "unknow", email: "Anonymous@unknow.org", age: 99, city_id: rand(City.all.first.id..City.all.last.id))
 
 	
 
