@@ -20,7 +20,7 @@ class GossipController < ApplicationController
                      'content' => params[:content])
     @gossip.save
     if @gossip.save
-      flash[:success] = "Potin bien créé !"
+      flash[:success] = "Gossip Created Successfully"
       redirect_to gossip_index_path
 
     else

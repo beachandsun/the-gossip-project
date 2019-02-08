@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="<%=gossip_index_path%>">Gossip</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<a class="nav-item nav-link" href="<%=team_path%>">Team <span class="sr-only">(current)</span></a>
+			<a class="nav-item nav-link" href="<%=contact_path%>">Contact</a>
+		</div>
+	</div>
+	<% if !session[:user_id] %>
+	<div>
+		<li><a class="btn btn-success p-3 pl-5 pr-5" href="<%=new_user_path%>" role="button">Sign in</a></li>
+
+	</div>
+	<div>
+		<li><a class="btn btn-light p-3 pl-5 pr-5" href="<%=new_session_path%>" role="button">Login</a></li>
+	</div>
+	<% else %>
+	<div>
+		<li><%= link_to "Logout", session_path(session[:user_id]), :method => 'DELETE', class: "btn btn-primary p-3 pl-5 pr-5" %></li>
+	</div>
+
+	<% end %>
+</nav>
+
+<% if flash[:success] %>
+  <div class= "alert alert-danger">
+    <%= flash[:success] %>
+      <% end %>
+  </div>
