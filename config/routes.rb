@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   resources :author
   resources :login
   resources :city
-  get 'home', to: 'home#show'
+  get 'home', to: 'gossip#index'
   get 'contact', to: 'contact#show'
   get 'team', to:'team#show'
+  get '/', to: 'gossip#index'
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

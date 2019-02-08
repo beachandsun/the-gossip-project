@@ -20,6 +20,7 @@ class GossipController < ApplicationController
                      'content' => params[:content])
     @gossip.save
     if @gossip.save
+      flash[:success] = "Potin bien créé !"
       redirect_to gossip_index_path
 
     else
@@ -32,9 +33,10 @@ class GossipController < ApplicationController
   end
 
   def update
-      @gossip = Gossip.find(params[:id])
-      @gossip.title = params[:title]
-      @gossip.content = params[:content]
+    @gossip = Gossip.find(params[:id])
+      @gossip.update('user_id' => session[:user_id],
+                     'title' => params[:title],
+                     'content' => params[:content])
       @gossip.save
 
     if @gossip.save
